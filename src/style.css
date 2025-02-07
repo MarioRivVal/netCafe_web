@@ -7,10 +7,9 @@
   --black-color: #1e1e1e;
   --light-gray: #707070;
   --yellow-color: #f9c06a;
-  /* --yellow-secondary: #957340; */
   --yellow-secondary: #603809;
   --light-yellow: #fdecd2;
-  --lighter-yellow: #fef9f0;
+  --lighter-yellow: #fff9f1;
 }
 
 html {
@@ -30,20 +29,21 @@ body {
   font-family: var(--primary-font);
   font-weight: 200;
   color: var(--white-color);
+  overflow-x: hidden;
 }
-main,
-section,
-footer {
-  max-width: 200rem;
+
+#app {
+  max-width: 180rem;
   margin: 0 auto;
+  overflow: hidden;
 }
+
 main {
   position: relative;
-  width: 100vw;
-  background-image: url("img/img-1.png");
+  background-image: url("./img/img-1.png");
   background-position: center;
   background-size: cover;
-  padding: 2rem 12rem;
+  padding: 2rem 8rem;
   margin: 0 auto;
 }
 
@@ -57,7 +57,9 @@ h1 {
   font-size: 22rem;
 }
 
-.header::after, .footer__form::after{
+.header::after,
+.footer__form::after,
+.section-cta::after {
   position: absolute;
   content: "";
   top: 0;
@@ -76,6 +78,10 @@ h1 {
   color: var(--yellow-secondary);
 }
 
+.u-white {
+  color: var(--white-color);
+}
+
 .secondary-title {
   font-size: 5.4rem;
   margin-bottom: 2.2rem;
@@ -84,18 +90,59 @@ h1 {
 
 .tertiary-title {
   font-size: 2rem;
+  font-weight: 700;
 }
 
+.quintiary-title {
+  font-size: 3rem;
+}
+
+.quatertary-title {
+  font-size: 2.2rem;
+}
 .section {
   background-color: var(--white-color);
-  padding: 10rem 12rem;
+  padding: 12rem 8rem;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  margin-top: 5rem;
-  gap: 2rem;
+  margin-top: 3rem;
+  column-gap: 2rem;
+  row-gap: 4rem;
+}
+
+.blast-img {
+  width: 30%;
+  height: auto;
+  position: absolute;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(10px);
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition-duration: 1s;
+  transition-delay: calc(0.2s * var(--i));
+}
+
+.hidden-text {
+  transform: translateY(100%);
+}
+
+.hidden-img-left {
+  transform: translateX(-100%);
+}
+
+.hidden-img-right {
+  transform: translateX(100%);
+}
+
+.show {
+  transform: translate(0);
+  opacity: 1;
+  filter: blur(0);
 }
 
 @media screen and (max-width: 992px) {
@@ -115,7 +162,11 @@ h1 {
     padding: 2rem 6rem;
   }
   .section {
-    padding: 6rem; 
+    padding: 6rem;
+  }
+
+  .blast-img {
+    width: 40%;
   }
 }
 
@@ -130,10 +181,11 @@ h1 {
 }
 
 @media screen and (max-width: 420px) {
-  html {
-    font-size: 34%;
-  }
   main {
     padding: 2rem;
+  }
+
+  .blast-img {
+    width: 50%;
   }
 }
