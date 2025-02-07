@@ -6,7 +6,7 @@
   position: relative;
   text-align: center;
   padding: 10rem 8rem;
-  background-image: url("./img/img-2.png");
+  background-image: url("../../img/img-2.png");
   background-size: cover;
   background-position: center;
   color: var(--white-color);
@@ -63,7 +63,7 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   padding: 12rem 8rem 10rem 8rem;
   gap: 6rem;
-  background-image: url("./img/img-7.png");
+  background-image: url("../../img/img-7.png");
   background-position: bottom;
   background-size: cover;
 }
